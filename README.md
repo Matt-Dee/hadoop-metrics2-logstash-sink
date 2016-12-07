@@ -1,4 +1,4 @@
-Hadoop Plugin for Logstash
+Hadoop Metrics2  Plugin for Logstash
 ===============================
 
 A plugin to sink the Hadoop Metrics2 framework with Logstash.
