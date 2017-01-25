@@ -64,6 +64,9 @@ public class LogstashRequestBuilder {
 
         String separator = ": ";
         for (MetricsTag tag : record.tags()) {
+//            Object o = getData(tag.value());
+            LOG.info( "regualr metric ******************************************************* "+ tag.name() + "\t" + tag.value() );
+
             Object o = getData(tag.value());
             if (o != null && tag.name() != null) {
                 send.put(tag.name(), o);
@@ -71,7 +74,8 @@ public class LogstashRequestBuilder {
         }
         for (AbstractMetric metric : record.metrics()) {
             if (metric.value() != null && metric.name() != null) {
-                send.put(metric.name(), metric.value());
+                send.put(metric.name(), new String("" + metric.value()));
+                LOG.info( "abstract metric ******************************************************* "+ metric.name() + "\t" + metric.value() );
             }
         }
         return send;
@@ -102,7 +106,8 @@ public class LogstashRequestBuilder {
             char c = s.charAt(i);
             if(c == '.') {
                 if(!decimalFound){
-                    decimalFound = true;
+//                    decimalFound = true;
+                    return s;
                 }else{
                     return s;
                 }
@@ -112,7 +117,8 @@ public class LogstashRequestBuilder {
         }
 
         if(decimalFound){
-            return new Float(s);
+//            return new Float(s);
+            return s;
         }
 
         return new Integer(s);
