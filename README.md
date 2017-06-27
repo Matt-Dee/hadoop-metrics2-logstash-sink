@@ -39,3 +39,5 @@ OR
 * Append the contents of this file to your existing hadoop-metrics2.properties file.
 
 #### Restart your Hadoop processes! 
+
+#### Feel free to contribute.  If you have better ways to implement or see ways to make it better, don't hesitate. 
